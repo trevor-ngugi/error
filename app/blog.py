@@ -1,17 +1,17 @@
-from flask import Flask,render_template
+from flask import Flask,render_template, url_for
 app = Flask(__name__)
 #
 pitchhs = [
     {
         'author': 'Trinity',
         'title': 'blog post 1',
-        'content': 'first post contant',
+        'content': 'first post content',
         'date_posted': 'feb 14, 2019'
     },
         {
         'author': 'Race',
         'title': 'blog post 2',
-        'content': 'second post contant',
+        'content': 'second post content',
         'date_posted': 'feb 16, 2019'
     }
     ]
