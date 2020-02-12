@@ -1,5 +1,7 @@
 from flask import Flask,render_template, url_for
-from app.forms import RegisterForm, LoginForm
+from app.forms import RegisterForm
+from app.forms import LoginForm
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY']= 'mine101'
@@ -7,13 +9,13 @@ app.config['SECRET_KEY']= 'mine101'
 pitchhs = [
     {
         'author': 'Trinity',
-        'title': 'blog post 1',
+        'title': 'pitch post 1',
         'content': 'first post content',
         'date_posted': 'feb 14, 2019'
     },
         {
         'author': 'Race',
-        'title': 'blog post 2',
+        'title': 'pitch post 2',
         'content': 'second post content',
         'date_posted': 'feb 16, 2019'
     }
@@ -31,12 +33,12 @@ def about():
 @app.route("/register")
 def register():
     form = RegisterForm()
-    return render_template('register.html', title=Register,forms=forms)
+    return render_template('register.html', title='Register'', forms=forms)
 
 @app.route("/login")
 def login():
     form = LoginForm()
-    return render_template('login.html', title=Login,forms=forms)
+    return render_template('login.html', title='Login' , forms=forms)
 
 
 if __name__ == '__main__':
