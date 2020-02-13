@@ -28,12 +28,12 @@ def home():
 
 @app.route("/about")
 def about():
-    return render_template('about.html',title=about)
+    return render_template('about.html',title='about')
 
-@app.route("/register")
+@app.route("/register", methods=['GET','POST'])
 def register():
     form = RegisterForm()
-    return render_template('register.html', title='Register'', forms=forms)
+    return render_template('register.html', title='Register', forms=forms )
 
 @app.route("/login")
 def login():
