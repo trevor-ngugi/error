@@ -1,10 +1,10 @@
 from flask import Flask,render_template, url_for
-from app.forms import RegisterForm
-from app.forms import LoginForm
+# from app.forms import RegisterForm
+# from app.forms import LoginForm
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY']= 'mine101'
+#app.config['SECRET_KEY']= 'mine101'
 
 pitchhs = [
     {
@@ -30,15 +30,15 @@ def home():
 def about():
     return render_template('about.html',title='about')
 
-@app.route("/register", methods=['GET','POST'])
-def register():
-    form = RegisterForm()
-    return render_template('register.html', title='Register', forms=forms )
+# @app.route("/register", methods=['GET','POST'])
+# def register():
+#     form = RegisterForm()
+#     return render_template('register.html', title='Register', forms=forms )
 
-@app.route("/login")
-def login():
-    form = LoginForm()
-    return render_template('login.html', title='Login' , forms=forms)
+# @app.route("/login")
+# def login():
+#     form = LoginForm()
+#     return render_template('login.html', title='Login' , forms=forms)
 
 
 if __name__ == '__main__':
