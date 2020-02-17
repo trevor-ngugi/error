@@ -1,6 +1,5 @@
 from flask import Flask,render_template, url_for
-# from app.forms import RegisterForm
-# from app.forms import LoginForm
+# from app.forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
 
@@ -21,19 +20,19 @@ pitches = [
     }
     ]
 
-@app.route('/')
+@app.route("/")
 @app.route("/home")
 def home():
-    return render_template('index.html',pitchs=pitches)
+    return render_template('index.html', pitchs=pitches)
 
 @app.route("/about")
 def about():
-    return render_template('about.html',title='about')
+    return render_template('about.html',title='About')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
-    
+
     return render_template('register.html', title='Register', forms=forms )
 
 @app.route("/login")
