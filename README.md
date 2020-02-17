@@ -15,13 +15,14 @@ Pitches version 1.0, Future releases should have the following features:
 ## CONTACT INFORMATION
 Email: [trinityrtime@gmail.com]
 
-# LANGUAGES
-Python
-Markdown
-FRAMEWORK
-Flask
-Heroku
-Description
+## LANGUAGES
+- Python
+- Markdown
+- FRAMEWORK
+- Flask
+- Heroku
+
+## Description
 - This application allows a user to post and view pitches.
 - Log ins can be made in the application using registered credentials.
 
