@@ -1,5 +1,5 @@
-from flask import Flask,render_template, url_for
-# from app.forms import RegisterForm, LoginForm
+from flask import Flask, render_template, url_for
+from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
 
@@ -10,13 +10,13 @@ pitches = [
         'author': 'Trinity',
         'title': 'pitch post 1',
         'content': 'first post content',
-        'date_posted': 'feb 14, 2019'
+        'date': 'feb 14, 2019'
     },
         {
         'author': 'Race',
         'title': 'pitch post 2',
         'content': 'second post content',
-        'date_posted': 'feb 16, 2019'
+        'date': 'feb 16, 2019'
     }
     ]
 
