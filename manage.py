@@ -1,13 +1,35 @@
-from app import create_app
-from flask_script import Manager, Server
+import os
 
-# create app instance
-app = create_app('development')
+class Config:
+  # url
 
-manager = Manager(app)
-manager.add_command('server', Server)
+class ProdConfig(Config):
+  pass
+
+class DevConfig(Config):
+  DEBUG= True
+
+config_options = {
+  'development':DevConfig,
+  'production':ProdConfig
+}
 
 
-#manager.add_command('server', Server)
-if __name__ == '__main__':
-    manager.run()
+
+
+
+
+
+
+# # from app import create_app
+# # from flask_script import Manager, Server
+
+# # create app instance
+# app = create_app('development')
+
+# manager = Manager(app)
+# manager.add_command('server', Server)
+
+# #manager.add_command('server', Server)
+# if __name__ == '__main__':
+#     manager.run()
