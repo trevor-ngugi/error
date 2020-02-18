@@ -9,8 +9,13 @@ def create_app(config_name):
 
   #app configs
   app.config.from_object(config_options[config_name])
-  #initializing extensions
+  #initializing flask extensions
   bootstrap.init_app(app)
+
+  #register blueprint
+  from .main import main as main_blueprint
+  app.register_blueprint(main_blueprint)
+  
   #will add pitch and forms
 
   return app
