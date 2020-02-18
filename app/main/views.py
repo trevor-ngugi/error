@@ -1,5 +1,9 @@
-from flask import Flask, render_template, url_for, request
-from forms import RegisterForm, LoginForm
+from flask import Flask, render_template, url_for, request, redirect, url_for, abort
+from .forms import RegisterForm, LoginForm
+from . import main
+from ..models import User, Pitch, Comments, PitchCategory, Votes
+#db
+
 
 app = Flask(__name__)
 
@@ -7,33 +11,41 @@ app.config['SECRET_KEY']= 'mine101'
 
 pitchs = [
     {
-        'author': 'Trinity',
+        'id': 'id1'
+        'author' : 'Trinity',
         'title': 'pitch post 1',
         'content': 'first post content',
         'date': 'feb 14, 2019'
     },
         {
+        'id':'id2'
         'author': 'Race',
         'title': 'pitch post 2',
         'content': 'second post content',
         'date': 'feb 16, 2019'
     }
     ]
-# @app.route('/hello/')/
-# @app.route('/hello/<name>')
-# def hello(name=None):
-#     return render_template('hello.html', name=name)
 
-@app.route("/")
-@app.route("/home/")
-def home():
-    return render_template('index.html', pitchs=pitchs)
 
-@app.route("/about")
+@main.route("/")
+def home
+
+
+
+
+
+
+
+
+# @app.route("/home/")
+# def home():
+#     return render_template('index.html', pitchs=pitchs)
+
+@main.route("/about")
 def about():
     return render_template('about.html',title='About')
 
-@app.route("/register", methods=['GET', 'POST'])
+@main.route("/register", methods=['GET', 'POST'])
 def register():
     # if request.method == 'POST'
     #     return do_login()
@@ -43,7 +55,7 @@ def register():
 
     return render_template('register.html', title='Register', forms=forms )
 
-@app.route("/login")
+@main.route("/login")
 def login():
     form = LoginForm()
     return render_template('login.html', title='Login' , forms=forms)
