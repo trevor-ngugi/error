@@ -1,11 +1,11 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY']= 'mine101'
 
-pitches = [
+pitchs = [
     {
         'author': 'Trinity',
         'title': 'pitch post 1',
@@ -19,11 +19,15 @@ pitches = [
         'date': 'feb 16, 2019'
     }
     ]
+# @app.route('/hello/')/
+# @app.route('/hello/<name>')
+# def hello(name=None):
+#     return render_template('hello.html', name=name)
 
 @app.route("/")
-@app.route("/home")
+@app.route("/home/")
 def home():
-    return render_template('index.html', pitchs=pitches)
+    return render_template('index.html', pitchs=pitchs)
 
 @app.route("/about")
 def about():
@@ -31,6 +35,10 @@ def about():
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    # if request.method == 'POST'
+    #     return do_login()
+    # else:
+    #     return LoginForm()
     form = RegisterForm()
 
     return render_template('register.html', title='Register', forms=forms )
