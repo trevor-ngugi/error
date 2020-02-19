@@ -17,14 +17,9 @@ class Config:
   #pass
 
 class ProdConfig(Config):
-
-  """
-   Pruduction configuration child class
-   Args:
-       Config: The parent configuration class with General configuration settings
-  """
   #pass
-  SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+class ProdConfig(Config):
+  SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class TestConfig(Config):
   SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
