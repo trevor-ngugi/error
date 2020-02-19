@@ -16,9 +16,6 @@ def load_user(user_id):
 
 
 class User(UserMixin,db.Model):
-    """ 
-    class modelling the users 
-    """
 
     __tablename__='users'
 

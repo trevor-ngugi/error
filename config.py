@@ -3,8 +3,10 @@ class Config:
   SECRET_KEY = os.environ.get("SECRET_KEY")
   SQLALCHEMY_TRACK_MODIFICATIONS = False
   UPLOADED_PHOTOS_DEST = 'app/static/photos'
-  # #DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
-  ## SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://john:passcode@localhost/pitch'
+  ##DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
+  ##SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
   ## email configs
   MAIL_SERVER ='smtp.gmail.com'
