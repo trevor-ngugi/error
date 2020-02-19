@@ -95,7 +95,7 @@ def new_category():
 
 
 #view single pitch alongside its comments
-@main.route('/view-pitch/<int:id>', methods=['GET', 'POST'])
+@main.route('/view_pitch/<int:id>', methods=['GET', 'POST'])
 @login_required
 def view_pitch(id):
     """
