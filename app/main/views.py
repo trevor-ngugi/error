@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, url_for, a
 from .forms import RegisterForm, LoginForm, PitchForm, CategoryForm, CommentForm
 from . import main
 from ..models import User, Pitch, Comments, PitchCategory, Votes
-# from flask_login import login_required, current_user
+from flask_login import login_required, current_user
 #db
 
 
@@ -10,33 +10,33 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY']= 'mine101'
 
-pitchs = [
-    {
-        'id': 'id1'
-        'author' : 'Trinity',
-        'title': 'pitch post 1',
-        'content': 'first post content',
-        'date': 'feb 14, 2019'
-    },
-        {
-        'id':'id2'
-        'author': 'Race',
-        'title': 'pitch post 2',
-        'content': 'second post content',
-        'date': 'feb 16, 2019'
-    }
-    ]
+# pitchs = [
+#     {
+#         'id': 'id1'
+#         'author': 'Trinity',
+#         'title': 'pitch post 1',
+#         'content': 'first post content',
+#         'date': 'feb 14, 2019'
+#     },
+#         {
+#         'id':'id2'
+#         'author': 'Race',
+#         'title': 'pitch post 2',
+#         'content': 'second post content',
+#         'date': 'feb 16, 2019'
+#     }
+#     ]
 
 
 @main.route('/')
 def index():
 
-    all_category = PitchCategory.get_categories()
-    all_pitches = Pitch.query.order_by('-id').all()
+    # all_category = PitchCategory.get_categories()
+    all_pitches = Pitch.query.order_by('id').all()
     print(all_pitches)
 
     title = 'Welcome'
-    return render_template('index.html', title = title, categories=all_category, all_pitches=all_pitches)
+    return render_template('index.html', title = title, all_pitches=all_pitches)
 
 
 

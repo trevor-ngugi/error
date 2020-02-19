@@ -17,11 +17,12 @@ class Config:
   #pass
 
 class ProdConfig(Config):
-    """
+
+  """
    Pruduction configuration child class
    Args:
        Config: The parent configuration class with General configuration settings
-   """
+  """
   #pass
   SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
@@ -30,8 +31,8 @@ class TestConfig(Config):
   #pass
 
 class DevConfig(Config):
-  DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
-  SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://john:passcode@localhost/pitch'
+
   DEBUG = True
   #pass
 

@@ -1,16 +1,16 @@
 #from flask import request
 from flask_wtf import FlaskForm
-from wtforms import StringField ,PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
+from wtforms import StringField ,PasswordField, SubmitField, BooleanField,TextAreaField
+from wtforms.validators import DataRequired, Length, Email, EqualTo,Required
 
 
 class PitchForm(FlaskForm):
     content = TextAreaField('INPUT PITCH')
-    submit = SubmitField('SUBMIT')
+    submit = SubmitField('submit')
 
 class CommentForm(FlaskForm):
     opinion = TextAreaField('WRITE COMMENT')
-    submit = SubmitField('SUBMIT')
+    submit = SubmitField('submit')
 
 class CategoryForm(FlaskForm):
     name =  StringField('Category Name', validators=[Required()])
