@@ -6,9 +6,9 @@ from flask_login import login_required, current_user
 #db
 
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-app.config['SECRET_KEY']= 'mine101'
+# app.config['SECRET_KEY']= 'mine101'
 
 # pitchs = [
 #     {
