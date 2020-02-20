@@ -1,3 +1,4 @@
-.pyc
+*.pyc
 virtual/
 __pycache__/
+instance/

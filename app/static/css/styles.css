@@ -1,26 +1,39 @@
 .navbar {
-  background-color: black;
+  background-color:blue;
   color: white;
   margin: 20px;
   padding: 20px;
 }
-.content {
+/* .content {
   background-color: black;
   color: white;
   margin: 20px;
   padding: 20px;
   text-align: center;
   
-}
+} */
 
 .container {
-  background-color: peru;
+  background-color:white;
   margin: 20px;
   padding: 20px;
 }
-.bottom {
+/* .bottom {
   background-color: black;
   color: white;
   margin: 20px;
   padding: 20px;
+} */
+
+.footer{
+  position: fixed;
+  left: o;
+  bottom: 0;
+  line-height: 5opx;
+  padding: 30px;
+  width: 100%;
+  background-color:chartreuse;
+  color:black;
+  text-align: center;
+  margin-bottom: 10px;
 }

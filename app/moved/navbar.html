@@ -1,0 +1,66 @@
+<!-- {% extends "layout.html" %}
+{% block navbar %}
+<nav class="navbar navbar-default navbar-fixed-top ">
+  <div class="dropdown">
+    <button
+      class="btn btn-default dropdown-toggle"
+      type="button"
+      id="dropdownMenu1"
+      data-toggle="dropdown"
+      data-target="#dropdown"
+      aria-haspopup="true"
+      aria-expanded="true" >
+        PITCHES
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li role="separator" class="divider"></li>
+      <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-primary">HOME</a>
+        <a href="#" class="btn btn-primary">Contacts</a>
+        <a href="#" class="btn btn-primary">ABOUT</a>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          BLOGS <span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">TODAY</a></li>
+            <li><a href="#">PAST</a></li>
+          </ul>
+      </div>
+    </ul>
+  </div>
+</nav>
+{% endblock %} -->
+
+
+
+{%import 'macros.html' as macro%}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">I MIN PITCH</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {{macro.displayCategory(categories)}}
+                </div>
+            </li>
+        </ul>
+        
+        </ul>
+    </div>
+</nav>
