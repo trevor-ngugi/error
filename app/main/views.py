@@ -1,9 +1,10 @@
 from flask import Flask, render_template, url_for, request, redirect, url_for, abort
-from .forms import RegisterForm, LoginForm, PitchForm, CategoryForm, CommentForm
+from .forms import  PitchForm, UpdateProfile
 from . import main
 from ..models import User,Pitch
 # Pitch, Comments, PitchCategory, Votes
 from flask_login import login_required, current_user
+from .. import db
 #db
 
 app = Flask(__name__)
@@ -44,6 +45,34 @@ def new_pitch(id):
         return redirect(url_for('.category', ))
 
     return render_template('new_pitch.html', pitch_form=form)
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)
+
+@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@login_required
+def update_profile(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+
+    form = UpdateProfile()
+
+    if form.validate_on_submit():
+        user.bio = form.bio.data
+
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.profile',uname=user.username))
+
+    return render_template('profile/update.html',form =form)
 
 @app.route("/home/")
 def home():
