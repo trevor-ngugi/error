@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container-fluid welcome-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 welcome">
+              {%if pitches%}
+              {% for pitch in pitches %}
+              <p>{{pitch.author}}</p>
+              {% endfor %}
+              {%else%}
+              <h3>NO PITCHES AVAILABLE</h3>
+              {%endif%}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
