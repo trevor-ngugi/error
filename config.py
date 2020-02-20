@@ -4,7 +4,8 @@ class Config:
   #SQLALCHEMY_TRACK_MODIFICATIONS = False
   UPLOADED_PHOTOS_DEST = 'app/static/photos'
 
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://john:passcode@localhost/pitch'
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://trevor:elite@localhost/trinity'
+  
   ##DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
   ##SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
@@ -17,7 +18,8 @@ class Config:
   #pass
 
 class ProdConfig(Config):
-  SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+  #SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+  pass
 
 class TestConfig(Config):
   SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')

@@ -1,6 +1,7 @@
 from app import create_app, db
 from flask_script import Manager, Server
-from app.models import User, Pitch, Comments, PitchCategory
+from app.models import User
+#Pitch, Comments, PitchCategory
 from flask_migrate import Migrate, MigrateCommand
 
 # \ backslash
@@ -8,7 +9,7 @@ from flask_migrate import Migrate, MigrateCommand
 # create app instance
 app = create_app('test')
 app = create_app('development')
-app = create_app('production')
+#app = create_app('production')
 
 manager = Manager(app)
 manager.add_command('server', Server)
@@ -28,7 +29,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app=app, db=db, User=User, Pitch = Pitch, Comments=Comments, PitchCategory=PitchCategory)
+    return dict(app=app, db=db, User=User)
     # pass
 
 if __name__ == '__main__':
