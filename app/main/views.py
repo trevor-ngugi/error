@@ -30,13 +30,14 @@ from flask_login import login_required, current_user
 
 @main.route('/')
 def index():
+    pitch = Pitch.query.filter_by().first()
 
     # all_category = PitchCategory.get_categories()
-    all_pitches = Pitch.query.order_by('id').all()
-    print(all_pitches)
+    # all_pitches = Pitch.query.order_by('id').all()
+    # print(all_pitches)
 
     title = 'Welcome'
-    return render_template('index.html', title = title, all_pitches=all_pitches)
+    return render_template('index.html', title = title, pitches=pitch)
 
 
 
