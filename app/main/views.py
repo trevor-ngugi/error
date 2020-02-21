@@ -14,35 +14,29 @@ app.config['SECRET_KEY']= 'mine101'
 
 @main.route('/')
 def index():
-    pitch = Pitch.query.filter_by().first()
+    pitch = Pitch.query.order_by('posted').all()
 
     # all_category = PitchCategory.get_categories()
     # all_pitches = Pitch.query.order_by('id').all()
     # print(all_pitches)
 
     title = 'Welcome'
-    return render_template('index.html', title = title, pitches=pitch)
+    return render_template('index.html', title = title, pitch=pitch)
 
 
 
 
 #Route for adding a new pitch
-@main.route('/category/new-pitch/<int:id>', methods=['GET', 'POST'])
+@main.route('/pitch/new/<int:id>', methods=['GET', 'POST'])
 @login_required
-def new_pitch(id):
-
-    
+def new_pitch(id): 
     form = PitchForm()
-    category = PitchCategory.query.filter_by(id=id).first()
-
-    if category is None:
-        abort(404)
 
     if form.validate_on_submit():
         content = form.content.data
         new_pitch= Pitch(content=content, user_id = current_user.id)
         new_pitch.save_pitch()
-        return redirect(url_for('.category', ))
+        return redirect(url_for('.index', ))
 
     return render_template('new_pitch.html', pitch_form=form)
 

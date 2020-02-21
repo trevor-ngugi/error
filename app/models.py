@@ -61,6 +61,7 @@ class Pitch(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     content = db.Column(db.String())
     category = db.Column(db.String())
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     
 
@@ -73,15 +74,15 @@ class Pitch(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    @classmethod
-    def clear_pitches(cls):
-        Pitch.all_pitches.clear()
+    # @classmethod
+    # def clear_pitches(cls):
+    #     Pitch.all_pitches.clear()
 
     # display pitches
-
-    # def get_pitches(id):
-    #     pitches = Pitch.query.filter_by(category_id=id).all()
-    #     return pitches
+    @classmethod
+    def get_pitches(cls):
+        pitches = Pitch.query.order_by(Pitch.posted).all()
+        return pitches
 
 
 #category model
